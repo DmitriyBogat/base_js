@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <button type="submit" id="dz1">Задание 1</button>
+    <button type="submit" id="dz2">Задание 2</button>
+    <button type="submit" id="dz3">Задание 3</button>
+    <script>
+        'use strict';
+        let dz1_button = document.getElementById("dz1");
+        let dz2_button = document.getElementById("dz2");
+        let dz3_button = document.getElementById("dz3");
+        dz1_button.addEventListener('click',function(){
+            let temp = Number(prompt('Введите температуру в градусах'));
+            alert('Ваша температура в фаренгейте составляет: ' + (1.8 * temp + 32));
+        });
+
+        dz2_button.addEventListener('click',function(){
+            let admin, name;
+            admin = "Василий";
+            name = admin;
+            console.log(name);
+        });
+        dz3_button.addEventListener('click',function(){
+            let v1 = 10+10+"10";
+            let v2 = 10 + "10" +10;
+            let v3 = 10+10+" " + 10;
+            let v4 = 10 / -"";
+            let v5 = 10 / + "2,5";
+            console.log(v1+"\n"+v2+"\n"+v3+"\n"+v4+"\n"+v5);
+            console.log ("1 - первые две константы складываются как числа и конкатенируются с третьей");
+            console.log ("2 - конкатенация всех трех констант (динамическая типизация мать ее)");
+            console.log ("3 - первые две константы складываются как числа и конкатенируются с пробелом и с третьей");
+            console.log ("4 - получаем тип бесконечность после деления на ноль");
+            console.log ("5 - not a number потому как делим число на не число");
+        });
+
+ 
+    </script>
+    
+</body>
+</html>
