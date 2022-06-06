@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <div class="ButtonClass">
+        <button type="submit" id="dz1">Задание 1</button>
+        <button type="submit" id="dz2">Задание 2</button>
+        <button type="submit" id="dz3">Задание 3</button>
+        <button type="submit" id="dz4">Задание 4</button>
+        <button type="submit" id="dz5">Задание 5</button>
+        <button type="submit" id="dz6">Задание 6</button>
+    </div>
+    <div class="hidden_div" id="H1_div">
+        ***ЗАДАНИЕ № 1***
+        <div class="text_div">
+            let a=1,b=1,c,c; // объвили локальные переменные <br>
+            c = ++a; //увеличиваем с на 1 префиксом;<br>
+            d = b++ // присваиваем значение  b как есть потом увеличиваем постфиксом <br>
+            c = 2 + ++a //  увеличиваем а до трех префиксом добавляем еще два и присваиваем с <br>
+            d = 2 + b++ //  к b  докидываем еще 2 (4) и присваиваем d,  само b  потом увеличиваем еще на один
+        </div>
+        <button type="submit" id="ok1">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H2_div">
+        ***ЗАДАНИЕ № 2***
+        <div class="text_div">
+            let a=2;
+            let x = 1 + (a*=2); // a присваивается значение (а*2)  <br> 
+            потом к нему прибавляется 1 <br>
+            и только потом результат присваивается x <br> 
+            x = 5; a =4;
+            
+        </div>
+        <button type="submit" id="ok2">ok</button>
+    </div>
+
+
+    <div class="hidden_div" id="H3_div">
+        ***ЗАДАНИЕ № 3***
+        <label for="inp1">Введите первое число</label> <input type="number" id="inp1"> 
+        <label for="inp2">Введите второе число</label>  <input type="number" id="inp2">
+        <label id="lb3">Результат(__)</label>
+        <button type="submit" id="res3">Получить результат</button>
+        <button type="submit" id="ok3">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H4_div">
+        ***ЗАДАНИЕ № 4***
+        <label for="inp3">Введите первое число</label> <input type="number" id="inp3"> 
+        <label for="inp4">Введите второе число</label>  <input type="number" id="inp4">
+        <label for="rad">Сложение</label><input type="radio" name="rad" value="1"> 
+        <label for="rad">Вычитание</label><input type="radio" name="rad" value="2">
+        <label for="rad">Деление</label><input type="radio" name="rad" value="3">
+        <label for="rad">Умножение</label><input type="radio" name="rad" value="4">
+        <label id="lb4">Результат(__)</label>
+        <button type="submit" id="res4">Получить результат</button>
+        <button type="submit" id="ok4">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H5_div">
+        ***ЗАДАНИЕ № 5***
+        <label for="inp5">Введите первое число</label> <input type="number" id="inp5"> 
+        <label for="inp6">Введите второе число</label>  <input type="number" id="inp6">
+        <label for="inp7">Введите операции</label>  <input type="text" id="inp7" placeholder="plus +; minus -; delit /; mnojit *">
+        <label id="lb5">Результат(__)</label>
+        <button type="submit" id="res5">Получить результат</button>
+        <button type="submit" id="ok5">ok</button>
+    </div>
+    <div class="hidden_div" id="H6_div">
+        ***ЗАДАНИЕ № 6***
+        <label for="inp8">Введите сумму</label> <input type="number" id="inp8"> 
+        <label id="lb6">Результат(__)</label>
+        <button type="submit" id="res6">Получить результат</button>
+        <button type="submit" id="ok6">ok</button>
+    </div>
+    <script>
+        'use strict';
+        function plusuem(val1,val2){
+            return +val1 + +val2;
+        }
+        function minusuem(val1,val2){
+            return +val1 - +val2;
+        }
+        function delim(val1,val2){
+            return +val1 / +val2;
+        }
+        function mnojim(val1,val2){
+            return +val1 * +val2;
+        }
+        function math_operations(val1,val2,oper_type){
+            switch(oper_type){
+                case 'plus': 
+                    return +val1 +  +val2;
+                case 'minus':
+                    return +val1 - +val2;
+                case 'delit':
+                    return +val1 / +val2;
+                case 'mnojit':
+                    return +val1 * +val2;
+            }
+
+        }
+
+        function okonchanie(val1){
+            let val_str = String(val1);
+            let last_s = val_str[val_str.length-1]
+            switch(last_s){
+                case '1': 
+                    return 'рубль';
+                case ('2'):
+                case ('3'):
+                case ('4'):
+                    return 'рубля';
+                case ('5'):
+                case ('6'):
+                case ('7'):
+                case ('8'):
+                case ('9'):
+                case ('0'):
+                    return 'рублей';    
+            }
+
+        }
+        let dz1_button = document.getElementById("dz1");
+        let dz2_button = document.getElementById("dz2");
+        let dz3_button = document.getElementById("dz3");
+        let dz4_button = document.getElementById("dz4");
+        let dz5_button = document.getElementById("dz5");
+        let dz6_button = document.getElementById("dz6");
+        let ok1_button = document.getElementById("ok1");
+        let ok2_button = document.getElementById("ok2");
+        let ok3_button = document.getElementById("ok3");
+        let ok4_button = document.getElementById("ok4");
+        let ok5_button = document.getElementById("ok5");
+        let ok6_button = document.getElementById("ok6");
+        let res3_button = document.getElementById("res3");
+        let res4_button = document.getElementById("res4");
+        let res5_button = document.getElementById("res5");
+        let res6_button = document.getElementById("res6");
+        dz1_button.addEventListener('click',function(){
+            let H1_div = document.getElementById("H1_div");
+            H1_div.style.display = "flex";
+        });
+        ok1_button.addEventListener('click',function(){
+            let H2_div = document.getElementById("H1_div");
+            H2_div.style.display = "none";
+        });
+
+        dz2_button.addEventListener('click',function(){
+            let H2_div = document.getElementById("H2_div");
+            H2_div.style.display = "flex";
+        });
+        ok2_button.addEventListener('click',function(){
+            let H2_div = document.getElementById("H2_div");
+            H2_div.style.display = "none";
+        });
+
+
+        dz3_button.addEventListener('click',function(){
+            let H3_div = document.getElementById("H3_div");
+            H3_div.style.display = "flex";
+            
+        });
+        res3_button.addEventListener('click',function(){
+            let first_number = document.getElementById("inp1").value;
+            let second_number = document.getElementById("inp2").value;
+            let res_label = document.getElementById("lb3");
+            if (Math.sign(first_number)==1 && Math.sign(second_number)==1) {
+                res_label.innerText = (first_number - second_number) +" - это разность"
+            } else if (Math.sign(first_number)==-1 && Math.sign(second_number)==-1){
+                res_label.innerText = (first_number * second_number) +" - это произведение"
+            } else {
+                res_label.innerText = (+first_number + +second_number) +" - это сумма"
+            }
+        });
+
+        ok3_button.addEventListener('click',function(){
+            let H3_div = document.getElementById("H3_div");
+            H3_div.style.display = "none";
+        });
+
+
+
+        dz4_button.addEventListener('click',function(){
+            let H4_div = document.getElementById("H4_div");
+            H4_div.style.display = "flex";
+            
+        });
+        res4_button.addEventListener('click',function(){
+            let first_number = document.getElementById("inp3").value;
+            let second_number = document.getElementById("inp4").value;
+            let res_label = document.getElementById("lb4");
+            let rad = document.getElementsByName("rad");
+            if (rad[0].checked) {
+                res_label.innerText = plusuem(first_number,second_number);
+            }
+            if (rad[1].checked) {
+                res_label.innerText = minusuem(first_number,second_number);
+            }
+            if (rad[2].checked) {
+                res_label.innerText = delim(first_number,second_number);
+            }
+            if (rad[3].checked) {
+                res_label.innerText = mnojim(first_number,second_number);
+            }
+        });
+
+        ok4_button.addEventListener('click',function(){
+            let H4_div = document.getElementById("H4_div");
+            H4_div.style.display = "none";
+        });
+
+
+        dz5_button.addEventListener('click',function(){
+            let H5_div = document.getElementById("H5_div");
+            H5_div.style.display = "flex";
+            
+        });
+        res5_button.addEventListener('click',function(){
+            let first_number = document.getElementById("inp5").value;
+            let second_number = document.getElementById("inp6").value;
+            let oper_type = document.getElementById("inp7").value;
+            let res_label = document.getElementById("lb5");
+            res_label.innerText = math_operations(first_number,second_number,oper_type)
+        });
+
+        ok5_button.addEventListener('click',function(){
+            let H5_div = document.getElementById("H5_div");
+            H5_div.style.display = "none";
+        });
+
+
+
+        dz6_button.addEventListener('click',function(){
+            let H6_div = document.getElementById("H6_div");
+            H6_div.style.display = "flex";
+            
+        });
+        res6_button.addEventListener('click',function(){
+            let first_number = document.getElementById("inp8").value;
+            let res_label = document.getElementById("lb6");
+            res_label.innerText = "На счет внесено- " + first_number +" " + okonchanie(first_number)
+        });
+
+        ok6_button.addEventListener('click',function(){
+            let H6_div = document.getElementById("H6_div");
+            H6_div.style.display = "none";
+        });
+ 
+    </script>
+    
+</body>
+</html>
