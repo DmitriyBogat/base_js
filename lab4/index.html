@@ -11,10 +11,10 @@
 <body>
     <div class="ButtonClass">
         <button type="submit" id="dz1">Задание 1</button>
-        <button type="submit" id="dz2">Задание 1.1</button>
-        <button type="submit" id="dz3">Задание 1.2</button>
-        <button type="submit" id="dz4">Задание 2</button>
-        <button type="submit" id="dz5">Задание 3</button>
+        <button type="submit" id="dz1.1">Задание 1.1</button>
+        <button type="submit" id="dz1.2">Задание 1.2</button>
+        <button type="submit" id="dz2">Задание 2</button>
+        <button type="submit" id="dz3">Задание 3</button>
         
     </div>
     <div class="hidden_div" id="H1_div">
@@ -27,8 +27,27 @@
         <button type="submit" id="ok1">ok</button>
     </div>
 
-    <div class="hidden_div" id="H2_div">
+    <div class="hidden_div" id="H1.1_div">
         ***ЗАДАНИЕ № 1.1***
+        <div class="text_div" id = "text_div1.1">
+            
+        </div>
+        <button type="submit" id="res1.1">Получить результат</button>
+        <button type="submit" id="ok1.1">ok</button>
+    </div>
+
+
+    <div class="hidden_div" id="H1.2_div">
+        ***ЗАДАНИЕ № 1.2***
+        <div class="text_div" id = "text_div1.2">
+            
+        </div>
+        <button type="submit" id="res1.2">Получить результат</button>
+        <button type="submit" id="ok1.2">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H2_div">
+        ***ЗАДАНИЕ № 2***
         <div class="text_div" id = "text_div2">
             
         </div>
@@ -36,58 +55,38 @@
         <button type="submit" id="ok2">ok</button>
     </div>
 
-
     <div class="hidden_div" id="H3_div">
-        ***ЗАДАНИЕ № 1.2***
+        ***ЗАДАНИЕ № 3***
         <div class="text_div" id = "text_div3">
             
         </div>
+        
         <button type="submit" id="res3">Получить результат</button>
         <button type="submit" id="ok3">ok</button>
-    </div>
-
-    <div class="hidden_div" id="H4_div">
-        ***ЗАДАНИЕ № 2***
-        <div class="text_div" id = "text_div4">
-            
-        </div>
-        <button type="submit" id="res4">Получить результат</button>
-        <button type="submit" id="ok4">ok</button>
-    </div>
-
-    <div class="hidden_div" id="H5_div">
-        ***ЗАДАНИЕ № 3***
-        <div class="text_div" id = "text_div5">
-            
-        </div>
-        
-        <button type="submit" id="res5">Получить результат</button>
-        <button type="submit" id="ok5">ok</button>
     </div>
     
     <script>
         'use strict';
         
         let dz1_button = document.getElementById("dz1");
-        let dz2_button = document.getElementById("dz1.1");
-        let dz3_button = document.getElementById("dz1.2");
-        let dz4_button = document.getElementById("dz2");
-        let dz5_button = document.getElementById("dz3");
+        let dz1_1_button = document.getElementById("dz1.1");
+        let dz1_2_button = document.getElementById("dz1.2");
+        let dz2_button = document.getElementById("dz2");
+        let dz3_button = document.getElementById("dz3");
         let ok1_button = document.getElementById("ok1");
-        let ok2_button = document.getElementById("ok1.1");
-        let ok3_button = document.getElementById("ok1.2");
-        let ok4_button = document.getElementById("ok2");
-        let ok5_button = document.getElementById("ok3");
+        let ok1_1_button = document.getElementById("ok1.1");
+        let ok1_2_button = document.getElementById("ok1.2");
+        let ok3_button = document.getElementById("ok3");
         let res1_button = document.getElementById("res1");
-        let res2_button = document.getElementById("res1.1");
-        let res3_button = document.getElementById("res1.2");
-        let res4_button = document.getElementById("res2");
-        let res5_button = document.getElementById("res3");
+        let res1_1_button = document.getElementById("res1.1");
+        let res1_2_button = document.getElementById("res1.2");
+        let res2_button = document.getElementById("res2");
+        let res3_button = document.getElementById("res3");
         let H1_div = document.getElementById("H1_div");
-        let H2_div = document.getElementById("H1.1_div");
-        let H3_div = document.getElementById("H1.2_div");
-        let H4_div = document.getElementById("H2_div");
-        let H5_div = document.getElementById("H3_div");
+        let H1_1_div = document.getElementById("H1.1_div");
+        let H1_2_div = document.getElementById("H1.2_div");
+        let H2_div = document.getElementById("H2_div");
+        let H3_div = document.getElementById("H3_div");
 
 
 ///ЗАДАНИЕ №1
@@ -124,14 +123,34 @@
 ///////
 
  ///ЗАДАНИЕ №1.1
-        
-        dz2_button.addEventListener('click',function(){
-            H2_div.style.display = "flex";
+        function Product_es5(name,price){
+            this.name = name;
+            this.price = price;
+        }
+        Product_es5.prototype.Make25PercentDiscount = function(){
+            this.price = this.price*0.75;
+        }
+        class Product_es6{
+            constructor(name,price){
+                this.name = name;
+                this.price = price;
+            }
+            Make25PercentDiscount() {
+                this.price = this.price*0.75; 
+            }    
+
+        }
+        dz1_1_button.addEventListener('click',function(){
+            H1_1_div.style.display = "flex";
         });
-        res2_button.addEventListener('click',function(){
-            let text_div = document.getElementById("text_div2");
-           
-            text_div.innerHTML = post.author + "<br>" + post.comments[0].rating.dislikes + "<br>" + post.comments[1].userId + "<br>"+ post.comments[1].text + "<br>"; 
+        res1_1_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div1.1");
+            let product1 = new Product_es5("картошка",120);
+            let product2 = new Product_es6("морковка",350);
+            product1.Make25PercentDiscount();
+            product2.Make25PercentDiscount();
+            text_div.innerHTML = "цена товара " + product1.name + " = " + product1.price + " <по скидке>" + "<br>"+
+            "цена товара " + product2.name + " = " + product2.price + " <по скидке>"; 
         });
         ok2_button.addEventListener('click',function(){
             H2_div.style.display = "none";
