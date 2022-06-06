@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+    <div class="ButtonClass">
+        <button type="submit" id="dz1">Задание 1</button>
+        <button type="submit" id="dz2">Задание 1.1</button>
+        <button type="submit" id="dz3">Задание 1.2</button>
+        <button type="submit" id="dz4">Задание 2</button>
+        <button type="submit" id="dz5">Задание 3</button>
+        
+    </div>
+    <div class="hidden_div" id="H1_div">
+        ***ЗАДАНИЕ № 1***
+        <div class="text_div" id = "text_div1">
+            
+        </div>
+        <label for="inp1">Введите трехзначное число</label> <input type="number" id="inp1"> 
+        <button type="submit" id="res1">Получить результат</button> 
+        <button type="submit" id="ok1">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H2_div">
+        ***ЗАДАНИЕ № 1.1***
+        <div class="text_div" id = "text_div2">
+            
+        </div>
+        <button type="submit" id="res2">Получить результат</button>
+        <button type="submit" id="ok2">ok</button>
+    </div>
+
+
+    <div class="hidden_div" id="H3_div">
+        ***ЗАДАНИЕ № 1.2***
+        <div class="text_div" id = "text_div3">
+            
+        </div>
+        <button type="submit" id="res3">Получить результат</button>
+        <button type="submit" id="ok3">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H4_div">
+        ***ЗАДАНИЕ № 2***
+        <div class="text_div" id = "text_div4">
+            
+        </div>
+        <button type="submit" id="res4">Получить результат</button>
+        <button type="submit" id="ok4">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H5_div">
+        ***ЗАДАНИЕ № 3***
+        <div class="text_div" id = "text_div5">
+            
+        </div>
+        
+        <button type="submit" id="res5">Получить результат</button>
+        <button type="submit" id="ok5">ok</button>
+    </div>
+    
+    <script>
+        'use strict';
+        
+        let dz1_button = document.getElementById("dz1");
+        let dz2_button = document.getElementById("dz2");
+        let dz3_button = document.getElementById("dz3");
+        let dz4_button = document.getElementById("dz4");
+        let dz5_button = document.getElementById("dz5");
+        let ok1_button = document.getElementById("ok1");
+        let ok2_button = document.getElementById("ok2");
+        let ok3_button = document.getElementById("ok3");
+        let ok4_button = document.getElementById("ok4");
+        let ok5_button = document.getElementById("ok5");
+        let res1_button = document.getElementById("res1");
+        let res2_button = document.getElementById("res2");
+        let res3_button = document.getElementById("res3");
+        let res4_button = document.getElementById("res4");
+        let res5_button = document.getElementById("res5");
+        let H1_div = document.getElementById("H1_div");
+        let H2_div = document.getElementById("H2_div");
+        let H3_div = document.getElementById("H3_div");
+        let H4_div = document.getElementById("H4_div");
+        let H5_div = document.getElementById("H5_div");
+
+
+///ЗАДАНИЕ №1
+        class TransformedNumbers{
+            constructor(units,tens,hundereds){
+                this.units = units;
+                this.tens = tens;
+                this.hundereds = hundereds;
+            }
+        }
+        function get_transformed_number(transform_number){
+            let units = transform_number%10;
+            let tens = Math.trunc(transform_number%100/10);
+            let hundereds = Math.trunc(transform_number/100);
+            return new TransformedNumbers(units,tens,hundereds);
+        }
+
+        dz1_button.addEventListener('click',function(){
+            H1_div.style.display = "flex";
+        });
+        res1_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div1");
+            let transform_number = document.getElementById("inp1").value;
+            
+            let transformed_number = get_transformed_number(transform_number);
+            text_div.innerHTML = 
+                "Units: " + transformed_number.units + "<br>"+
+                "Tens: "+ transformed_number.tens + "<br>" +
+                "Hundereds: "+ transformed_number.hundereds + "<br>";
+        });
+        ok1_button.addEventListener('click',function(){
+            H1_div.style.display = "none";
+        });
+///////
+
+ ///ЗАДАНИЕ №1.1
+        
+        dz2_button.addEventListener('click',function(){
+            H2_div.style.display = "flex";
+        });
+        res2_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div2");
+           
+            text_div.innerHTML = post.author + "<br>" + post.comments[0].rating.dislikes + "<br>" + post.comments[1].userId + "<br>"+ post.comments[1].text + "<br>"; 
+        });
+        ok2_button.addEventListener('click',function(){
+            H2_div.style.display = "none";
+        });
+///////
+
+ ///ЗАДАНИЕ №1.2
+ 
+        dz3_button.addEventListener('click',function(){
+            let H3_div = document.getElementById("H3_div");
+            H3_div.style.display = "flex";
+            
+        });
+        res3_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div3");
+            let result_text
+            
+            text_div.innerHTML = result_text;
+        });
+
+        ok3_button.addEventListener('click',function(){
+            H3_div.style.display = "none";
+        });
+//////////////////////////////////
+
+///ЗАДАНИЕ №2
+
+        dz4_button.addEventListener('click',function(){
+            H4_div.style.display = "flex";
+            
+        });
+        res4_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div4");
+            const products = [
+                {
+                    id: 3,
+                    price: 127,
+                    photos: [
+                        "1.jpg",
+                        "2.jpg",
+                    ]
+                },
+                {
+                    id: 5,
+                    price: 499,
+                    photos: [
+
+                    ]
+                },
+                {
+                    id: 10,
+                    price: 26,
+                    photos: [
+                        "3.jpg"
+                    ]
+                },
+                {
+                    id: 8,
+                    price: 78,
+                },
+            ];
+           const first_filtered_produts = products.filter(product => product.photos !=undefined );
+           const second_filtered_produts = first_filtered_produts.filter(product => product.photos.length >0);
+           let result_text;
+
+           second_filtered_produts.forEach((product) => {
+            if (result_text == undefined) {result_text = "Продукты с фото: <br>"};
+                result_text = result_text+ product.id +";<br>";
+           }) 
+            products.sort(function(a, b) { 
+                if (a.price > b.price) {
+                    return 1;
+                }
+                if (a.price < b.price) {
+                    return -1;
+                }
+                    return 0; });
+            result_text = result_text+ "Продукты по возрастанию цены: <br>"
+            products.forEach((product) => {
+                result_text = result_text+ product.id +";<br>";
+           })
+           text_div.innerHTML = result_text; 
+
+        });
+
+        ok4_button.addEventListener('click',function(){
+            H4_div.style.display = "none";
+        });
+//////////////////////////////////
+
+///ЗАДАНИЕ №3
+        function show_numbers(Index){
+            let text_div = document.getElementById("text_div5");
+            text_div.innerHTML = text_div.innerHTML + "<br>" + Index;
+        }
+        dz5_button.addEventListener('click',function(){
+            H5_div.style.display = "flex";
+            
+        });
+        res5_button.addEventListener('click',function(){
+            for (let Index = 0; Index<10;show_numbers(Index++)) {};  
+        });
+
+        ok5_button.addEventListener('click',function(){
+           
+            H5_div.style.display = "none";
+        });
+
+//////////////////////////////////
+
+ 
+    </script>
+    
+</body>
+</html>
