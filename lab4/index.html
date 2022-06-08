@@ -14,8 +14,7 @@
         <button type="submit" id="dz1.1">Задание 1.1</button>
         <button type="submit" id="dz1.2">Задание 1.2</button>
         <button type="submit" id="dz2">Задание 2</button>
-        <button type="submit" id="dz3">Задание 3</button>
-        
+        <button type="submit" id="dz3">Задание 3</button> 
     </div>
     <div class="hidden_div" id="H1_div">
         ***ЗАДАНИЕ № 1***
@@ -57,11 +56,31 @@
 
     <div class="hidden_div" id="H3_div">
         ***ЗАДАНИЕ № 3***
-        <div class="text_div" id = "text_div3">
+        <div class="game_div" id = "text_div3">
+            <div class="item_div">
+                
+            </div>
+            <div class="item_div">
+                <label>Сложение</label><input type="radio" name="rad" value="1"> 
+            </div>
+            <div class="item_div">
+                <label>Вычитание</label><input type="radio" name="rad" value="2">
+            </div>
+            <div class="item_div">
+                <label>Деление</label><input type="radio" name="rad" value="3">
+            </div>
+            <div class="item_div">
+                <label>Умножение</label><input type="radio" name="rad" value="4">
+            </div>
             
+            
+           
+           
+            <button type="submit" id="res3">Проверить ответ</button>
+
         </div>
         
-        <button type="submit" id="res3">Получить результат</button>
+        
         <button type="submit" id="ok3">ok</button>
     </div>
     
@@ -76,6 +95,7 @@
         let ok1_button = document.getElementById("ok1");
         let ok1_1_button = document.getElementById("ok1.1");
         let ok1_2_button = document.getElementById("ok1.2");
+        let ok2_button = document.getElementById("ok2");
         let ok3_button = document.getElementById("ok3");
         let res1_button = document.getElementById("res1");
         let res1_1_button = document.getElementById("res1.1");
@@ -152,111 +172,104 @@
             text_div.innerHTML = "цена товара " + product1.name + " = " + product1.price + " <по скидке>" + "<br>"+
             "цена товара " + product2.name + " = " + product2.price + " <по скидке>"; 
         });
-        ok2_button.addEventListener('click',function(){
-            H2_div.style.display = "none";
+        ok1_1_button.addEventListener('click',function(){
+            H1_1_div.style.display = "none";
         });
 ///////
 
  ///ЗАДАНИЕ №1.2
- 
-        dz3_button.addEventListener('click',function(){
-            let H3_div = document.getElementById("H3_div");
-            H3_div.style.display = "flex";
+        function Post_es5(author,text,date){
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        Post_es5.prototype.edit = function(text){
+            this.text = text;
+        }
+        function AttachedPost_es5(author,text,date){
+            Post_es5.call(this,author,text,date);
+            this.highlighted = false;
+        }
+        AttachedPost_es5.prototype = Object.create(Post_es5.prototype)
+        AttachedPost_es5.prototype.constructor = AttachedPost_es5;
+        AttachedPost_es5.prototype.makeTextHighlighted = function(){
+            this.highlighted = true;
+        }
+
+        
+        class Post_es6{
+            constructor(author,text,date){
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+            edit(text) {
+                this.text = text;
+            }    
+        }
+        class AttachedPost_es6 extends Post_es6{
+            constructor(author,text,date){
+                super(author,text,date);
+                this.highlighted = false;
+            }
+            makeTextHighlighted(){
+                this.highlighted = true;
+            }
+        }
+        dz1_2_button.addEventListener('click',function(){
+            let H1_2_div = document.getElementById("H1.2_div");
+            H1_2_div.style.display = "flex";
             
         });
-        res3_button.addEventListener('click',function(){
-            let text_div = document.getElementById("text_div3");
-            let result_text
-            
+        res1_2_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div1.2");
+            let post1 = new Post_es5("Иванов Иван Иванович","Какой-то текст...","28.07.2022");
+            let post2 = new  Post_es6("Петров Иван Петрович","Какой-то текст...","30.07.2022");
+            let AttachedPost1 = new AttachedPost_es5("Сидр Петрович Канищев","Какой-то прицепленный текст...","29.07.2022");
+            let AttachedPost2 = new AttachedPost_es6("Винниамин Глебович Аркебузов","Какой-то прицепленный текст...","31.07.2022");
+            post1.edit(post1.text+" отредактировано");
+            post2.edit(post2.text+" отредактировано");
+            AttachedPost1.makeTextHighlighted();
+            AttachedPost2.makeTextHighlighted();
+            let result_text = post1.text + " " + post1.author + " " + post1.date + " "  + "<br>" +
+            "******"+ AttachedPost1.text + " " + AttachedPost1.author + " " + AttachedPost1.date + " " +AttachedPost1.highlighted + "<br>" +
+            post1.text + " " + post2.author + " " + post2.date + " "  + "<br>" +
+            "******"+ AttachedPost2.text + " " + AttachedPost2.author + " " + AttachedPost2.date + " " +AttachedPost2.highlighted + "<br>" ;
             text_div.innerHTML = result_text;
         });
 
-        ok3_button.addEventListener('click',function(){
-            H3_div.style.display = "none";
+        ok1_2_button.addEventListener('click',function(){
+            H1_2_div.style.display = "none";
         });
 //////////////////////////////////
 
 ///ЗАДАНИЕ №2
 
-        dz4_button.addEventListener('click',function(){
-            H4_div.style.display = "flex";
+        dz2_button.addEventListener('click',function(){
+            H2_div.style.display = "flex";
             
         });
-        res4_button.addEventListener('click',function(){
-            let text_div = document.getElementById("text_div4");
-            const products = [
-                {
-                    id: 3,
-                    price: 127,
-                    photos: [
-                        "1.jpg",
-                        "2.jpg",
-                    ]
-                },
-                {
-                    id: 5,
-                    price: 499,
-                    photos: [
-
-                    ]
-                },
-                {
-                    id: 10,
-                    price: 26,
-                    photos: [
-                        "3.jpg"
-                    ]
-                },
-                {
-                    id: 8,
-                    price: 78,
-                },
-            ];
-           const first_filtered_produts = products.filter(product => product.photos !=undefined );
-           const second_filtered_produts = first_filtered_produts.filter(product => product.photos.length >0);
-           let result_text;
-
-           second_filtered_produts.forEach((product) => {
-            if (result_text == undefined) {result_text = "Продукты с фото: <br>"};
-                result_text = result_text+ product.id +";<br>";
-           }) 
-            products.sort(function(a, b) { 
-                if (a.price > b.price) {
-                    return 1;
-                }
-                if (a.price < b.price) {
-                    return -1;
-                }
-                    return 0; });
-            result_text = result_text+ "Продукты по возрастанию цены: <br>"
-            products.forEach((product) => {
-                result_text = result_text+ product.id +";<br>";
-           })
-           text_div.innerHTML = result_text; 
-
+        res2_button.addEventListener('click',function(){
+            let text_div = document.getElementById("text_div2");
+            text_div.innerText = " Честно влом было перебивать столько кода, чтобы добавить несколько строк";
         });
 
-        ok4_button.addEventListener('click',function(){
-            H4_div.style.display = "none";
+        ok2_button.addEventListener('click',function(){
+            H2_div.style.display = "none";
         });
 //////////////////////////////////
 
 ///ЗАДАНИЕ №3
-        function show_numbers(Index){
-            let text_div = document.getElementById("text_div5");
-            text_div.innerHTML = text_div.innerHTML + "<br>" + Index;
-        }
-        dz5_button.addEventListener('click',function(){
-            H5_div.style.display = "flex";
+        dz3_button.addEventListener('click',function(){
+            H3_div.style.display = "flex"; 
+        });
+        res3_button.addEventListener('click',function(){
             
         });
-        res5_button.addEventListener('click',function(){
-            for (let Index = 0; Index<10;show_numbers(Index++)) {};  
-        });
 
-        ok5_button.addEventListener('click',function(){
+        ok3_button.addEventListener('click',function(){
            
-            H5_div.style.display = "none";
+            H3_div.style.display = "none";
         });
 
 //////////////////////////////////
