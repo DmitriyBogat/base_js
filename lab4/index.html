@@ -56,30 +56,33 @@
 
     <div class="hidden_div" id="H3_div">
         ***ЗАДАНИЕ № 3***
+        <script src="game.js"></script>
+        <script src="game1.json"></script>
         <div class="game_div" id = "text_div3">
-            <div class="item_div">
-                
+            <div class="title_div">
+                Приветствую Вас в Джуманджи!<br>
+                Желаете начать игру?
             </div>
             <div class="item_div">
-                <label>Сложение</label><input type="radio" name="rad" value="1"> 
+                <label></label><input type="radio" name="rad" value="1"> 
             </div>
             <div class="item_div">
-                <label>Вычитание</label><input type="radio" name="rad" value="2">
+                <label></label><input type="radio" name="rad" value="2">
             </div>
             <div class="item_div">
-                <label>Деление</label><input type="radio" name="rad" value="3">
+                <label></label><input type="radio" name="rad" value="3">
             </div>
             <div class="item_div">
-                <label>Умножение</label><input type="radio" name="rad" value="4">
+                <label></label><input type="radio" name="rad" value="4">
             </div>
-            
-            
-           
-           
-            <button type="submit" id="res3">Проверить ответ</button>
-
+            <div class="item_div">
+                <button type="submit" id="Answ_btn">Проверить ответ</button>
+            </div>
+            <div class="start_stop">
+                <button type="submit" id="Game_start_btn">Начать!</button>
+            </div>
         </div>
-        
+      
         
         <button type="submit" id="ok3">ok</button>
     </div>
@@ -101,12 +104,14 @@
         let res1_1_button = document.getElementById("res1.1");
         let res1_2_button = document.getElementById("res1.2");
         let res2_button = document.getElementById("res2");
-        let res3_button = document.getElementById("res3");
+        let Game_start_btn = document.getElementById("Game_start_btn");
+        let Answ_btn = document.getElementById("Game_start_btn");
         let H1_div = document.getElementById("H1_div");
         let H1_1_div = document.getElementById("H1.1_div");
         let H1_2_div = document.getElementById("H1.2_div");
         let H2_div = document.getElementById("H2_div");
         let H3_div = document.getElementById("H3_div");
+        let items = document.getElementsByClassName("item_div");
 
 
 ///ЗАДАНИЕ №1
@@ -260,10 +265,14 @@
 //////////////////////////////////
 
 ///ЗАДАНИЕ №3
+        new_game = new game;
         dz3_button.addEventListener('click',function(){
             H3_div.style.display = "flex"; 
         });
-        res3_button.addEventListener('click',function(){
+        Game_start_btn.addEventListener('click',function(){
+        game;
+        });
+        Answ_btn.addEventListener('click',function(){
             
         });
 
