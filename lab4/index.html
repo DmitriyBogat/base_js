@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="ButtonClass">
+        <button type="submit" id="dz1">Задание 1</button>
+        <button type="submit" id="dz1.1">Задание 1.1</button>
+        <button type="submit" id="dz1.2">Задание 1.2</button>
+        <button type="submit" id="dz2">Задание 2</button>
+        <button type="submit" id="dz3">Задание 3</button> 
+    </div>
+    <div class="hidden_div" id="H1_div">
+        ***ЗАДАНИЕ № 1***
+        <div class="text_div" id = "text_div1">
+            
+        </div>
+        <label for="inp1">Введите трехзначное число</label> <input type="number" id="inp1"> 
+        <button type="submit" id="res1">Получить результат</button> 
+        <button type="submit" id="ok1">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H1.1_div">
+        ***ЗАДАНИЕ № 1.1***
+        <div class="text_div" id = "text_div1.1">
+            
+        </div>
+        <button type="submit" id="res1.1">Получить результат</button>
+        <button type="submit" id="ok1.1">ok</button>
+    </div>
+
+
+    <div class="hidden_div" id="H1.2_div">
+        ***ЗАДАНИЕ № 1.2***
+        <div class="text_div" id = "text_div1.2">
+            
+        </div>
+        <button type="submit" id="res1.2">Получить результат</button>
+        <button type="submit" id="ok1.2">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H2_div">
+        ***ЗАДАНИЕ № 2***
+        <div class="text_div" id = "text_div2">
+            
+        </div>
+        <button type="submit" id="res2">Получить результат</button>
+        <button type="submit" id="ok2">ok</button>
+    </div>
+
+    <div class="hidden_div" id="H3_div">
+        ***ЗАДАНИЕ № 3***
+        <div class="game_div" id = "text_div3">
+            <div class="title_div" id ="title">
+                Приветствую Вас в Джуманджи!<br>
+                Желаете начать игру?
+            </div>
+            <div class="item_div">
+                <label id="answ1_l"></label><input type="radio"  id="answ1" name="rad" value="2">
+            </div>
+            <div class="item_div">
+                <label id="answ2_l"></label><input type="radio"  id="answ2" name="rad" value="3">
+            </div>
+            <div class="item_div">
+                <label id="answ3_l" ></label><input type="radio" id="answ3" name="rad" value="4">
+            </div>
+            <div class="item_div">
+                <label id="answ4_l"></label><input type="radio"name="rad" value="1"> 
+            </div>
+            <div class="item_div">
+                <button type="submit" class= "check_button" id="Answ_btn">Проверить ответ</button>
+            </div>
+            <div class="item_div">
+                <label id="score">Ваш счет: 0</label>
+            </div>
+            <div class="start_stop">
+                <button type="submit"  id="Game_start_btn">Начать!</button>
+            </div>
+           
+        </div>
+        <button type="submit" id="ok3">ok</button>
+    </div>
+   
+  
+    
+</body>
+<script>
+    'use strict';
+    let dz1_button = document.getElementById("dz1");
+    let dz1_1_button = document.getElementById("dz1.1");
+    let dz1_2_button = document.getElementById("dz1.2");
+    let dz2_button = document.getElementById("dz2");
+    let dz3_button = document.getElementById("dz3");
+    let ok1_button = document.getElementById("ok1");
+    let ok1_1_button = document.getElementById("ok1.1");
+    let ok1_2_button = document.getElementById("ok1.2");
+    let ok2_button = document.getElementById("ok2");
+    let ok3_button = document.getElementById("ok3");
+    let res1_button = document.getElementById("res1");
+    let res1_1_button = document.getElementById("res1.1");
+    let res1_2_button = document.getElementById("res1.2");
+    let res2_button = document.getElementById("res2");
+    let Game_start_btn = document.getElementById("Game_start_btn");
+    let Answ_btn = document.getElementById("Answ_btn");
+    let H1_div = document.getElementById("H1_div");
+    let H1_1_div = document.getElementById("H1.1_div");
+    let H1_2_div = document.getElementById("H1.2_div");
+    let H2_div = document.getElementById("H2_div");
+    let H3_div = document.getElementById("H3_div");
+    let rads = document.getElementsByName("rad");
+    let items = document.getElementsByClassName("item_div"); // объявил коллекцию дивов с вопросами для игры
+///ЗАДАНИЕ №1
+    class TransformedNumbers{
+        constructor(units,tens,hundereds){
+            this.units = units;
+            this.tens = tens;
+            this.hundereds = hundereds;
+        }
+    }
+    function get_transformed_number(transform_number){
+        let units = transform_number%10;
+        let tens = Math.trunc(transform_number%100/10);
+        let hundereds = Math.trunc(transform_number/100);
+        return new TransformedNumbers(units,tens,hundereds);
+    }
+
+    dz1_button.addEventListener('click',function(){
+        H1_div.style.display = "flex";
+    });
+    res1_button.addEventListener('click',function(){
+        let text_div = document.getElementById("text_div1");
+        let transform_number = document.getElementById("inp1").value;
+        
+        let transformed_number = get_transformed_number(transform_number);
+        text_div.innerHTML = 
+            "Units: " + transformed_number.units + "<br>"+
+            "Tens: "+ transformed_number.tens + "<br>" +
+            "Hundereds: "+ transformed_number.hundereds + "<br>";
+    });
+    ok1_button.addEventListener('click',function(){
+        H1_div.style.display = "none";
+    });
+///////
+
+///ЗАДАНИЕ №1.1
+    function Product_es5(name,price){
+        this.name = name;
+        this.price = price;
+    }
+    Product_es5.prototype.Make25PercentDiscount = function(){
+        this.price = this.price*0.75;
+    }
+    class Product_es6{
+        constructor(name,price){
+            this.name = name;
+            this.price = price;
+        }
+        Make25PercentDiscount() {
+            this.price = this.price*0.75; 
+        }    
+
+    }
+    dz1_1_button.addEventListener('click',function(){
+        H1_1_div.style.display = "flex";
+    });
+    res1_1_button.addEventListener('click',function(){
+        let text_div = document.getElementById("text_div1.1");
+        let product1 = new Product_es5("картошка",120);
+        let product2 = new Product_es6("морковка",350);
+        product1.Make25PercentDiscount();
+        product2.Make25PercentDiscount();
+        text_div.innerHTML = "цена товара " + product1.name + " = " + product1.price + " <по скидке>" + "<br>"+
+        "цена товара " + product2.name + " = " + product2.price + " <по скидке>"; 
+    });
+    ok1_1_button.addEventListener('click',function(){
+        H1_1_div.style.display = "none";
+    });
+///////
+
+///ЗАДАНИЕ №1.2
+    function Post_es5(author,text,date){
+        this.author = author;
+        this.text = text;
+        this.date = date;
+    }
+    Post_es5.prototype.edit = function(text){
+        this.text = text;
+    }
+    function AttachedPost_es5(author,text,date){
+        Post_es5.call(this,author,text,date);
+        this.highlighted = false;
+    }
+    AttachedPost_es5.prototype = Object.create(Post_es5.prototype)
+    AttachedPost_es5.prototype.constructor = AttachedPost_es5;
+    AttachedPost_es5.prototype.makeTextHighlighted = function(){
+        this.highlighted = true;
+    }
+
+    
+    class Post_es6{
+        constructor(author,text,date){
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+        edit(text) {
+            this.text = text;
+        }    
+    }
+    class AttachedPost_es6 extends Post_es6{
+        constructor(author,text,date){
+            super(author,text,date);
+            this.highlighted = false;
+        }
+        makeTextHighlighted(){
+            this.highlighted = true;
+        }
+    }
+    dz1_2_button.addEventListener('click',function(){
+        let H1_2_div = document.getElementById("H1.2_div");
+        H1_2_div.style.display = "flex";
+        
+    });
+    res1_2_button.addEventListener('click',function(){
+        let text_div = document.getElementById("text_div1.2");
+        let post1 = new Post_es5("Иванов Иван Иванович","Какой-то текст...","28.07.2022");
+        let post2 = new  Post_es6("Петров Иван Петрович","Какой-то текст...","30.07.2022");
+        let AttachedPost1 = new AttachedPost_es5("Сидр Петрович Канищев","Какой-то прицепленный текст...","29.07.2022");
+        let AttachedPost2 = new AttachedPost_es6("Винниамин Глебович Аркебузов","Какой-то прицепленный текст...","31.07.2022");
+        post1.edit(post1.text+" отредактировано");
+        post2.edit(post2.text+" отредактировано");
+        AttachedPost1.makeTextHighlighted();
+        AttachedPost2.makeTextHighlighted();
+        let result_text = post1.text + " " + post1.author + " " + post1.date + " "  + "<br>" +
+        "******"+ AttachedPost1.text + " " + AttachedPost1.author + " " + AttachedPost1.date + " " +AttachedPost1.highlighted + "<br>" +
+        post1.text + " " + post2.author + " " + post2.date + " "  + "<br>" +
+        "******"+ AttachedPost2.text + " " + AttachedPost2.author + " " + AttachedPost2.date + " " +AttachedPost2.highlighted + "<br>" ;
+        text_div.innerHTML = result_text;
+    });
+
+    ok1_2_button.addEventListener('click',function(){
+        H1_2_div.style.display = "none";
+    });
+//////////////////////////////////
+
+///ЗАДАНИЕ №2
+
+    dz2_button.addEventListener('click',function(){
+        H2_div.style.display = "flex";
+        
+    });
+    res2_button.addEventListener('click',function(){
+        let text_div = document.getElementById("text_div2");
+        text_div.innerText = " Честно влом было перебивать столько кода, чтобы добавить несколько строк";
+    });
+
+    ok2_button.addEventListener('click',function(){
+        H2_div.style.display = "none";
+    });
+//////////////////////////////////
+
+///ЗАДАНИЕ №3
+    class Game{///// Так и не понял как объявить класс в другом файле..
+        constructor(quastions){
+            this.quastions = quastions;
+            this.ques_number = 0;
+            this.score = 0; 
+
+        }
+        run_game(items){
+            for(let item of items){
+                item.style.display = "flex";
+                Game_start_btn.innerText= "Завершить игру"
+            }
+
+        }
+        exit_game(items){
+            for(let item of items){
+                item.style.display = "none";
+            } 
+            alert("Ваш результат:" + new_game.score)
+            Game_start_btn.innerText= "Начать!"
+            new_game.score = 0;
+            new_game.ques_number = 0; 
+            document.querySelector("#title").innerHTML = "Приветствую Вас в Джуманджи!<br>Желаете начать игру?"
+            document.querySelector("#score").innerText = "Ваш счет: 0";
+        }
+        set_quastion(quastion){
+            document.querySelector("#title").innerText = quastion.ques;
+            document.querySelector("#answ1_l").innerText = quastion.answ1;
+            document.querySelector("#answ2_l").innerText = quastion.answ2;
+            document.querySelector("#answ3_l").innerText = quastion.answ3;
+            document.querySelector("#answ4_l").innerText = quastion.answ4;
+        }
+        check_quastion(quastion){
+            for (let rad of rads) {
+                if (rad.checked) {
+                    if (rad.id == quastion.right_answ) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+    }
+    var quastions = [ //хотел это залить из файла json но без сервера хром меня лесом отправил
+        {
+            "ques": "Кем был мужчина, послуживший моделью для известной картины «Американская готика» Гранта Вуда?",
+            "answ1": "A: Коммивояжером",
+            "answ2": "B: Местным шерифом",
+            "answ3": "C: Его зубным врачом",
+            "answ4": "D: Его мясником",
+            "right_answ": "answ3"
+        },
+        {
+            "ques": "Какое насекомое вызвало короткое замыкание в ранней версии вычислительной машины, тем самым породив термин «компьютерный баг» («баг» в переводе с англ. «насекомое»)?",
+            "answ1": "A: Мотылек",
+            "answ2": "B: Таракан",
+            "answ3": "C: Муха",
+            "answ4": "D: Японский хрущик",
+            "right_answ": "answ1"
+        },
+        {
+            "ques": "Из каких плодов можно получить копру?",
+            "answ1": "A: Ананас",
+            "answ2": "B: Вишня",
+            "answ3": "C: Кокос",
+            "answ4": "D: Абрикос",
+            "right_answ": "answ3"
+        }
+        ,
+        {
+            "ques": "Под каким названием известна единица с последующими ста нулями?",
+            "answ1": "A: Гугол",
+            "answ2": "B: Мегатрон",
+            "answ3": "C: Гигабит",
+            "answ4": "D: Наномоль",
+            "right_answ": "answ1"
+        },
+        {
+            "ques": "Какой химический элемент составляет более половины массы тела человека?",
+            "answ1": "A: Углерод",
+            "answ2": "B: Кальций",
+            "answ3": "C: Кислород",
+            "answ4": "D: Железо",
+            "right_answ": "answ3"
+        }
+    ];
+    let new_game = new Game(quastions);
+    dz3_button.addEventListener('click',function(){
+        H3_div.style.display = "flex"; 
+    });
+    Game_start_btn.addEventListener('click',function(){
+        if (Game_start_btn.innerText == "Начать!"){
+           new_game.run_game(items);
+            new_game.set_quastion(new_game.quastions[0])  
+        }else{
+            new_game.exit_game(items);
+        }
+       
+    });
+    Answ_btn.addEventListener('click',function(){
+        if (new_game.check_quastion(new_game.quastions[new_game.ques_number])){
+            new_game.score = new_game.score+1;
+            document.querySelector("#score").innerText = "Ваш счет: " +new_game.score;
+        }
+        new_game.ques_number = new_game.ques_number +1;
+        if (new_game.ques_number == new_game.quastions.length) {
+            new_game.exit_game(items);
+        }else {
+            new_game.set_quastion(new_game.quastions[new_game.ques_number]);
+        }
+
+    });
+
+    ok3_button.addEventListener('click',function(){
+        H3_div.style.display = "none";
+    });
+
+//////////////////////////////////
+
+
+</script>
+</html>
