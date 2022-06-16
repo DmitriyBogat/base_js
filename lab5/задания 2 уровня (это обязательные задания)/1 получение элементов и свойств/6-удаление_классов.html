@@ -23,5 +23,13 @@
     1. Найдите все "карточки" с классом .card.
     2. Проверьте есть ли у карточки класс hidden с помощью метода contains(),
     и если есть, то удалите с помощью метода remove(). -->
+    <script>
+        let objects = document.getElementsByClassName("card");
+        for (let object of objects){
+           if (object.classList.contains("hidden")) {
+                object.classList.remove("hidden");
+           }
+        }
+    </script>
 </body>
 </html>
