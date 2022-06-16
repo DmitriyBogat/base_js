@@ -16,12 +16,22 @@
     2. Проверьте, есть ли в ссылке текст "ссылка", и если нет, то добавьте. -->
 
     <script>
+<<<<<<< HEAD
+        let links = document.querySelectorAll("a[href]");
+        links.forEach((link) => {
+            if (link.textContent != "ссылка") {
+                link.textContent = "ссылка";
+            }
+
+        })
+=======
          let links = document.querySelectorAll("a[href]");
         links.forEach((link)=>{
                 if (link.textContent != "ссылка"){
                     link.textContent = "ссылка";   
                 }
             });
+>>>>>>> 53dd6863b75cd66e4a82832809d011358abd0127
     </script>
 </body>
 </html>

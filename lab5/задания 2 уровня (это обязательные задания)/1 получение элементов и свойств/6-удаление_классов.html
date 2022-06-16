@@ -24,6 +24,15 @@
     2. Проверьте есть ли у карточки класс hidden с помощью метода contains(),
     и если есть, то удалите с помощью метода remove(). -->
     <script>
+<<<<<<< HEAD
+        let objects = document.getElementsByClassName("card");
+        for (let object of objects){
+           if (object.classList.contains("hidden")) {
+                object.classList.remove("hidden");
+           }
+        }
+    </script>
+=======
         let cards = document.querySelectorAll(".card");
             cards.forEach((card)=>{
                 if (card.classList.contains("hidden")){
@@ -32,5 +41,6 @@
             });
 
    </script>
+>>>>>>> 53dd6863b75cd66e4a82832809d011358abd0127
 </body>
 </html>
