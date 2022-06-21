@@ -41,7 +41,13 @@
     -->
 
     <script>
-        
+        let images = document.querySelectorAll("img");
+        setTimeout(function(){
+            images.forEach(image =>{
+                image.src="images/"+ image.parentElement.nextElementSibling.innerText.slice(-1)+".jpg";
+            })
+        }, 3000       
+        ) 
     </script>
 </body>
 </html>

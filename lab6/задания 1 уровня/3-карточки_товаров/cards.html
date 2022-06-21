@@ -44,7 +44,14 @@
     -->
 
     <script>
-
+        let products = document.querySelectorAll(".product");
+        products.forEach(product=>{
+            product.setAttribute("style","background-color: blue");
+        });
+        let productNAmes = document.querySelectorAll(".productName");
+        productNAmes.forEach(productName=>{
+            productName.setAttribute("style","font-size: 24px");
+        });
     </script>
 </body>
 </html>

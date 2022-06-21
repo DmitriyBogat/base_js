@@ -36,7 +36,17 @@
      -->
 
     <script>
-        
+        let formEL = document.querySelector("form");
+        let inputs = document.querySelectorAll("input");
+        formEL.addEventListener('submit', e => {
+            inputs.forEach(input =>{
+                if (input.value == "") {
+                    input.style.borderColor = "red";
+                    e.preventDefault();
+                }
+            })
+        })
+      
     </script>
 </body>
 </html>

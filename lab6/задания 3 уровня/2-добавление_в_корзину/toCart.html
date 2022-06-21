@@ -39,13 +39,16 @@
     события (параметр event) вы получаете кнопку на которой произошло
     событие (свойство target) и меняете у нее текст на "Добавлено".
     -->
-
     <script>
-        
-		
-		function buttonClickHandler(event) {
-		
-		}
+        function buttonClickHandler(event) {
+            event.currentTarget.innerText = "Добавлено";
+            event.currentTarget.parentNode.style = "background-color: lightgreen";   
+        }
+        let buttons = document.querySelectorAll("button");
+            buttons.forEach(button =>{
+                button.addEventListener('click', e=> buttonClickHandler(e));
+                
+            })
     </script>
 </body>
 </html>
