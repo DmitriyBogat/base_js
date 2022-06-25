@@ -20,7 +20,14 @@
     -->
 
     <script>
-        
+        let buttons = document.querySelectorAll("button");
+        buttons.forEach(button => {
+           button.addEventListener('click', e=> {
+            console.log("data-id "+ e.target.dataset.id)
+            console.log("data-value "+ e.target.dataset.value)  
+           });
+            
+        });
     </script>
 </body>
 </html>

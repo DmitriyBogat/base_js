@@ -22,7 +22,12 @@
     
 
     <script>
-        
+        let input = document.querySelector("input");
+        let div = document.querySelector("div");
+        input.addEventListener("input",(e)=>{
+            div.setAttribute("style",`font-size:${e.target.value}px`);
+
+        })
     </script>
 </body>
 </html>
