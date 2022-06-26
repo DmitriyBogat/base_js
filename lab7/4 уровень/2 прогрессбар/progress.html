@@ -22,10 +22,13 @@
         /**
          * @param {number} percent величина процента от 0 до 100.
          */
-        function changeProgress(percent) {
+         for (let i = 1; i<=100;i++){
+            setTimeout(changeProgress,i*1000,i);
+        }
+         function changeProgress(percent) {
             div.style.background = `linear-gradient(90deg, rgba(38,255,162,1) ${percent}%, rgba(255,255,255,1) ${percent}%)`;
         }
-
+        
         /* 
         Вам нужно в цикле for создать отложенные вызовы с помощью setTimeout. Т.е. в цикле должны
         быть вызовы функции setTimeout.

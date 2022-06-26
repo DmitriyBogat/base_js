@@ -75,12 +75,20 @@ const products = {
     ],
 };
 
-
+let product_div = document.querySelector(".products");
+let buttons = document.querySelectorAll("button");
+buttons.forEach(button =>{
+    button.addEventListener("click",event => clickHandler(event));
+})
 /**
  * Эта функция должна вызываться при клике по кнопкам.
  * @param {MouseEvent} event
  */
+
 function clickHandler(event) {
+    product_div.innerHTML = "";
+    let buf = event.target.getAttribute("data-type");
+    product_div.innerHTML = showCategory(event.target.getAttribute("data-type"));
     //вам нужно очищать содержимое .products
     
     //в showCategory надо передать строку с типом категории, тип берите
@@ -96,7 +104,17 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
+    let products_html = "";
+    products[category].forEach(product => {
+        products_html = products_html + 
+        `<div class="product">
+        <div>${product.name}</div>
+        <img src="${product.imageUrl}" alt="">
+        <div>${product.price}</div>
+        <a href="https://example.com/producs/${product.id}">Подробнее</a>
+        </div>`
+    });
+    return products_html;
 }
 
 /**

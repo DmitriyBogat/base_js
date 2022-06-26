@@ -50,5 +50,5 @@ function changeActiveClass(event) {
  */
 function changeText(event) {
     let el_num = event.target.textContent.slice(-1)-1;
-    text.textContent= texts[event.target.textContent.slice(-1)-1]; 
+    text.textContent= texts["text"+event.target.textContent.slice(-1)]; 
 }
