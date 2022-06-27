@@ -3,7 +3,10 @@
 
 // 1.1 затем проитерируйтесь по кнопкам и каждой из
 // них добавьте обработчик клика - функцию handleClick
-
+let buttons = document.querySelectorAll("button");
+buttons.forEach(button =>{
+    button.addEventListener("click",event =>handleClick(event))
+})
 
 /**
  * Функция обрабатывает клик по кнопке в карточке товара и попеременно вызывает
@@ -11,16 +14,17 @@
  * @param {MouseEvent} clickedButtonEvent 
  */
 function handleClick(clickedButtonEvent) {
+    const cardNode = clickedButtonEvent.currentTarget.parentNode
     // 2. из объекта события получите ссылку на .product и
     // сохраните в переменную:
     // const cardNode = ;
 
     // 3. создайте литерал объекта со следующими свойствами:
     const card = {
-        wrap: , // здесь элемент с классом .product
-        img: , // здесь картинка внутри .product
-        productName: , // здесь .productName, который внутри .product
-        button: , // здесь button, который внутри .product
+        wrap: cardNode , // здесь элемент с классом .product
+        img: cardNode.HTMLImageElement , // здесь картинка внутри .product
+        productName: cardNode.get , // здесь .productName, который внутри .product
+        button: cardNode. , // здесь button, который внутри .product
     };
 
     // 4. получаем текст на кнопке, которая внутри .product
