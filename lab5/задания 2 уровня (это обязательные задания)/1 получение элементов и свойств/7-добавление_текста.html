@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+    <a href="#">ссылка</a>
+    <a href="#"></a>
+
+    <!-- Задание.
+    1. Получите все ссылки.
+    2. Проверьте, есть ли в ссылке текст "ссылка", и если нет, то добавьте. -->
+
+    <script>
+<<<<<<< HEAD
+        let links = document.querySelectorAll("a[href]");
+        links.forEach((link) => {
+            if (link.textContent != "ссылка") {
+                link.textContent = "ссылка";
+            }
+
+        })
+=======
+         let links = document.querySelectorAll("a[href]");
+        links.forEach((link)=>{
+                if (link.textContent != "ссылка"){
+                    link.textContent = "ссылка";   
+                }
+            });
+>>>>>>> 53dd6863b75cd66e4a82832809d011358abd0127
+    </script>
+</body>
+</html>
